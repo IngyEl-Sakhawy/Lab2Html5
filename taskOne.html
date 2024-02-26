@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Container with Black Border</title>
+</head>
+<body>
+
+<canvas id="containerCanvas" width="500" height="500"></canvas>
+
+<script>
+    
+    var canvas = document.getElementById("containerCanvas");
+    var ctx = canvas.getContext("2d");
+
+    
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 5;
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+
+var gradient1 = ctx.createLinearGradient(0, 0, 0, canvas.height / 2);
+gradient1.addColorStop(0, "blue");
+gradient1.addColorStop(1, "transparent"); 
+
+
+ctx.fillStyle = gradient1;
+ctx.fillRect(10, 10, canvas.width / 2 +230, canvas.height / 2 - 20);
+
+
+var gradient2 = ctx.createLinearGradient(0, canvas.height / 2, 0, canvas.height);
+gradient2.addColorStop(0, "green"); 
+gradient2.addColorStop(1, "transparent");
+
+
+ctx.fillStyle = gradient2;
+ctx.fillRect(10, canvas.height / 2 + 10, canvas.width /2 +230, canvas.height / 2 - 20);
+
+var borderGradient = ctx.createLinearGradient(10, 10, canvas.width / 2 + 230, canvas.height - 20);
+    borderGradient.addColorStop(0, "black"); 
+    borderGradient.addColorStop(1, "transparent"); 
+
+    
+    ctx.strokeStyle = borderGradient;
+
+
+    ctx.strokeRect(125, 100, canvas.width / 2 , canvas.height - 200);
+</script>
+
+</body>
+</html>
+
+
